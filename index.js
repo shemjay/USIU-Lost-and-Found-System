@@ -1,13 +1,45 @@
-function openTab(evt, tabName) {
-    var i, x, tablinks;
-    x = document.getElementsByClassName("content-tab");
-    for (i = 0; i < x.length; i++) {
-    x[i].style.display = "none";
-        }
-    tablinks = document.getElementsByClassName("tab");
-    for (i = 0; i < x.length; i++) {
-  tablinks[i].className = tablinks[i].className.replace(" is-active", "");
-        }
-    document.getElementById(tabName).style.display = "block";
-    evt.currentTarget.className += " is-active";
-    }
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-app.js";
+        import { getDatabase } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-database.js";
+        import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-auth.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyAalz5fFuOOG6_EZVFIO-hJRA2Sw1Yyg2A",
+            authDomain: "lost-and-found-system-67568.firebaseapp.com",
+            databaseURL: "https://lost-and-found-system-67568-default-rtdb.firebaseio.com",
+            projectId: "lost-and-found-system-67568",
+            storageBucket: "lost-and-found-system-67568.appspot.com",
+            messagingSenderId: "32608786023",
+            appId: "1:32608786023:web:6aea01187ecb53ce6a66c2"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const database = getDatabase(app);
+        const auth = getAuth();
+
+        var username = document.getElementById('signup-user').value;
+        var email = document.getElementById('signup-email').value;
+        var schoolID = document.getElementById('signup-id').value;
+        var password = document.getElementById('signup-pwd').value;
+        
+
+        signup.addEventListner('click',(e) => {
+
+            createUserWithEmailAndPassword(auth, email, password)
+                .then((userCredential) => {
+                    // Signed in 
+                    const user = userCredential.user;
+                    alert('User Created!');
+                    // ...
+                })
+                .catch((error) => {
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
+
+                    alert('Error!');
+                    // ..
+                });
+        })
