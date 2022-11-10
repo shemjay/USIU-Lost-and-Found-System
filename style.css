@@ -1,9 +1,9 @@
 
 /* Box sizing rules */
-*,
-*::before,
-*::after {
+body
+ {
   box-sizing: border-box;
+  background-color: rgba(34, 21, 155);
 }
 
 /* Remove default margin */

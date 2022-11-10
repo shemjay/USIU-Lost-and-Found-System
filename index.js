@@ -1,5 +1,6 @@
-import { initializeApp } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-app.js";
-        import { getDatabase } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-database.js";
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-app.js";
+        import { getDatabase, set, ref } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-database.js";
         import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-auth.js";
         // TODO: Add SDKs for Firebase products that you want to use
         // https://firebase.google.com/docs/web/setup#available-libraries
@@ -20,18 +21,22 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.13.0/firebas
         const database = getDatabase(app);
         const auth = getAuth();
 
+signup.addEventListener('click',(e) => {
+
         var username = document.getElementById('signup-user').value;
         var email = document.getElementById('signup-email').value;
         var schoolID = document.getElementById('signup-id').value;
         var password = document.getElementById('signup-pwd').value;
         
-
-        signup.addEventListner('click',(e) => {
-
             createUserWithEmailAndPassword(auth, email, password)
                 .then((userCredential) => {
                     // Signed in 
                     const user = userCredential.user;
+
+                    set(ref(database, 'user/' + user.id),{
+                        username: username,
+                        email: email
+                    })
                     alert('User Created!');
                     // ...
                 })
@@ -42,4 +47,4 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.13.0/firebas
                     alert('Error!');
                     // ..
                 });
-        })
+        });
