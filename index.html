@@ -2,110 +2,55 @@
 <html lang="en">
 
 <head>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>My Website</title>
-    <link rel="stylesheet" href="./style.css" type="text/css">
-    <link rel="icon" href="./favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>My Website</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="./favicon.ico" type="image/x-icon">
 </head>
 
 <body>
-    <main>
-
-        <!-- Sign Up -->
-        <section>
-            <div class="hero is-fullheight">
-                <div class="hero-body is-justify-content-center is-align-items-center">
-                    <div class="columns is-flex is-flex-direction-column box">
-                        <div class="column">
-                            <h1 class="title">Please enter your credentials</h1>
-                            <label for="email">School Email</label>
-                            <input id="signup-email" class="input is-primary" type="text" placeholder="Email address">
-                        </div>
-                        <div class="column">
-                            <label for="Name">Username</label>
-                            <input id="signup-user" class="input is-primary" type="username" placeholder="Username">
-                        </div>
-                        <div class="column">
-                            <label for="Name">School ID</label>
-                            <input id="signup-id" class="input is-primary" type="text" placeholder="School ID">
-                        </div>
-                        <div class="column">
-                            <label for="Name">Password</label>
-                            <input id="signup-pwd" class="input is-primary" type="password" placeholder="Password">
-                            <a href="forget.html" class="is-size-7 has-text-primary">forget password?</a>
-                        </div>
-                        <div class="column">
-                            <button id="signup" class="button is-primary is-fullwidth" type="submit">Sign Up</button>
-                        </div>
-                        <div class="has-text-centered">
-                            <p class="is-size-7"> Already have an account? <a href="login.html" class="has-text-primary">Login
-                                    </a>
-                            </p>
-                        </div>
+  <main>
+    <!-- Sign Up -->
+    <section>
+        <div class="hero is-fullheight">
+            <div class="hero-body is-justify-content-center is-align-items-center">
+                <div class="columns is-flex is-flex-direction-column box">
+                    <div class="column">
+                        <h1 class="title">Please enter your credentials</h1>
+                        <label for="email">School Email</label>
+                        <input id="signup-email" class="input is-primary" type="text" placeholder="Email address">
+                    </div>
+                    <div class="column">
+                        <label for="Name">Username</label>
+                        <input id="signup-user" class="input is-primary" type="username" placeholder="Username">
+                    </div>
+                    <div class="column">
+                        <label for="Name">School ID</label>
+                        <input id="signup-id" class="input is-primary" type="text" placeholder="School ID">
+                    </div>
+                    <div class="column">
+                        <label for="Name">Password</label>
+                        <input id="signup-pwd" class="input is-primary" type="password" placeholder="Password">
+                        <a href="forget.html" class="is-size-7 has-text-primary">forget password?</a>
+                    </div>
+                    <div class="column">
+                        <button id="signup" class="button is-primary is-fullwidth" type="submit">Sign Up</button>
+                    </div>
+                    <div class="has-text-centered">
+                        <p class="is-size-7"> Already have an account? <a href="login.html" class="has-text-primary">Login
+                                </a>
+                        </p>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
     </main>
-
-
-    <!-- <script src="index.js"></script> -->
-    <!-- Firebase Auth -->
-    <script type="module">
-        // Import the functions you need from the SDKs you need
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-app.js";
-        import { getDatabase, set, ref } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-database.js";
-        import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-auth.js";
-        // TODO: Add SDKs for Firebase products that you want to use
-        // https://firebase.google.com/docs/web/setup#available-libraries
-
-        // Your web app's Firebase configuration
-        const firebaseConfig = {
-            apiKey: "AIzaSyAalz5fFuOOG6_EZVFIO-hJRA2Sw1Yyg2A",
-            authDomain: "lost-and-found-system-67568.firebaseapp.com",
-            databaseURL: "https://lost-and-found-system-67568-default-rtdb.firebaseio.com",
-            projectId: "lost-and-found-system-67568",
-            storageBucket: "lost-and-found-system-67568.appspot.com",
-            messagingSenderId: "32608786023",
-            appId: "1:32608786023:web:6aea01187ecb53ce6a66c2"
-        };
-
-        // Initialize Firebase
-        const app = initializeApp(firebaseConfig);
-        const database = getDatabase(app);
-        const auth = getAuth();
-
-signup.addEventListener('click',(e) => {
-
-        var username = document.getElementById('signup-user').value;
-        var email = document.getElementById('signup-email').value;
-        var schoolID = document.getElementById('signup-id').value;
-        var password = document.getElementById('signup-pwd').value;
-        
-            createUserWithEmailAndPassword(auth, email, password)
-                .then((userCredential) => {
-                    // Signed in 
-                    const user = userCredential.user;
-
-                    set(ref(database, 'user/' + user.id),{
-                        username: username,
-                        email: email
-                    })
-                    alert('User Created!');
-                    // ...
-                })
-                .catch((error) => {
-                    const errorCode = error.code;
-                    const errorMessage = error.message;
-
-                    alert('Error!');
-                    // ..
-                });
-        });
-    </script>
+    <script type="module" src="index.js"></script>
 </body>
-
 </html>
+
+
