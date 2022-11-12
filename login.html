@@ -32,7 +32,8 @@
               <button id="login" class="button is-primary is-fullwidth" type="submit">Login</button>
             </div>
             <div class="has-text-centered">
-              <p class="is-size-7"> Don't have an account? <a href="index.html" class="has-text-primary">Sign up</a>
+              <p class="is-size-7"> Don't have an account? <a href="index.html" class="has-text-primary">Sign up</a> 
+                <a id = "logout" href="index.html" class="has-text-primary">Log Out</a>
               </p>
             </div>
           </div>
@@ -55,7 +56,9 @@
       import {
         getAuth,
         createUserWithEmailAndPassword,
-        signInWithEmailAndPassword
+        signInWithEmailAndPassword,
+        onAuthStateChanged,
+        signOut
       } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-auth.js";
       // TODO: Add SDKs for Firebase products that you want to use
       // https://firebase.google.com/docs/web/setup#available-libraries
@@ -76,6 +79,7 @@
       const database = getDatabase(app);
       const auth = getAuth();
       let login = document.getElementById('login');
+      let logout = document.getElementById('logout');
 
       //login section
       login.addEventListener('click', (e) => {
@@ -103,6 +107,38 @@
           });
   
       });
+
+    const user = auth.currentUser;
+    onAuthStateChanged(auth, (user) => {
+        if (user) {
+            // User is signed in, see docs for a list of available properties
+            // https://firebase.google.com/docs/reference/js/firebase.User
+            const uid = user.uid;
+            // ...
+            //code to get the current user come here
+        } else {
+            // User is signed out
+            // ...
+            //changes once the user has loggin in come here
+        }
+    });
+
+    //log out the user
+    logout.addEventListener('click', (e) => {
+
+        signOut(auth).then(() => {
+            // Sign-out successful.
+            alert('Signed out successfully!');
+        }).catch((error) => {
+            // An error happened.
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            
+            alert(errorMessage);
+        });
+
+    });
+
   </script>
 </body>
 </html>
