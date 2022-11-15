@@ -1,9 +1,16 @@
+/* Color Variables */
+:root {
+  --blue: rgb(rgb(40,56,144));
+  --yellow: rgb(254,213,0);
+  --white: rgb(255,255,255);
+}
+
 
 /* Box sizing rules */
 body
  {
   box-sizing: border-box;
-  background-color: rgba(34, 21, 155);
+  background-color: rgb(40,56,144);
 }
 
 /* Remove default margin */
@@ -33,14 +40,8 @@ html:focus-within {
 
 /* Set core body defaults */
 body {
-  min-height: 100vh;
   text-rendering: optimizeSpeed;
   line-height: 1.5;
-}
-
-/* A elements that don't have a class get default styles */
-a:not([class]) {
-  text-decoration-skip-ink: auto;
 }
 
 /* Make images easier to work with */
@@ -56,20 +57,4 @@ button,
 textarea,
 select {
   font: inherit;
-}
-
-/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
-@media (prefers-reduced-motion: reduce) {
-  html:focus-within {
-   scroll-behavior: auto;
-  }
-  
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
 }
