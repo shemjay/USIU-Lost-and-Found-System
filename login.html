@@ -27,6 +27,19 @@
             <span aria-hidden="true"></span>
           </a>
         </div>
+
+        <div class="navbar-end">
+          <div class="navbar-item">
+            <div class="buttons">
+              <a class="button is-primary" href = "index.html">
+                <strong>Sign up</strong>
+              </a>
+              <a id = "logoutbtn" class="button is-light">
+                Log Out
+              </a>
+            </div>
+          </div>
+        </div>
       </nav>
     </section>
 
@@ -97,7 +110,7 @@
       const database = getDatabase(app);
       const auth = getAuth();
       let login = document.getElementById('login');
-      let logout = document.getElementById('logout');
+      let logout = document.getElementById('logoutbtn');
 
       //login section
       login.addEventListener('click', (e) => {
@@ -144,7 +157,6 @@
 
     //log out the user
     logout.addEventListener('click', (e) => {
-
         signOut(auth).then(() => {
             // Sign-out successful.
             alert('Signed out successfully!');
