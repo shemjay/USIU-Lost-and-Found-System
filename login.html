@@ -155,11 +155,12 @@
         }
     });
 
-    //log out the user
+    //log out the user //
     logout.addEventListener('click', (e) => {
         signOut(auth).then(() => {
             // Sign-out successful.
             alert('Signed out successfully!');
+            // window.location.href="login.html" //
         }).catch((error) => {
             // An error happened.
             const errorCode = error.code;
