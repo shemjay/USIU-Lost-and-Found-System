@@ -59,3 +59,8 @@ textarea,
 select {
   font: inherit;
 }
+
+.image.is-4by1 {
+  padding-top: 25%;
+}
+

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Contact us</title>
+	<link rel="stylesheet" type="text/css" href="form.css">
+	<link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta charset="UTF-8">
+</head>
+<body>
+    <!-- Report item form -->
+    <main>
+        <section>
+        <!-- Navbar -->
+        <nav class="navbar" role="navigation" aria-label="main navigation">
+            <div class="navbar-brand py-1">
+              <a class="navbar-item" href="index.html">
+                <img src="img/usiu.png" width = "80" height = "80">
+              </a>
+          
+  <a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false">
+    <span aria-hidden="true"></span>
+    <span aria-hidden="true"></span>
+    <span aria-hidden="true"></span>
+  </a>
+            </div>
+          
+            <div class="navbar-menu" id="navMenu">
+              <div class="navbar-end">
+                <a class="navbar-item">
+                  Lost Items
+                </a>
+  
+                <a class="navbar-item">
+                  Found Items
+                </a>
+          
+                <a class="navbar-item" href = "reportform.html">
+                  Report an Item 
+                </a>
+              </div>
+          
+              <div class="navbar">
+                <div class="navbar-item">
+                  <div class="buttons">
+                    <a class="button is-primary" href = "index.html">
+                      <strong>Sign up</strong>
+                    </a>
+                    <a id = "logout" class="button is-light">
+                      Log Out
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </nav>
+        </section>
+
+
+        <section>
+            <div class="container">
+                <div class="contact-box">
+                    <div class="left"></div>
+                    <div class="right">
+                        <h2>Report your item</h2>
+                        <input type="text" class="field" placeholder="Your Name">
+                        <input type="text" class="field" placeholder="Your Email">
+                        <input type="text" class="field" placeholder="Phone">
+                        <textarea placeholder="Message" class="field"></textarea>
+                        <button class="btn">Send</button>
+                    </div>
+                </div>
+            </div>
+            <script type="module" src="index.js"></script>
+            <script src="main.js"></script>
+        </section>
+    </main>
+</body>
+</html>

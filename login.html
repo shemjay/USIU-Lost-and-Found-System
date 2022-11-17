@@ -64,7 +64,7 @@
             </div>
             <div class="has-text-centered">
               <p class="is-size-7"> Don't have an account? <a href="index.html" class="has-text-primary">Sign up</a> 
-                <a id = "logout" href="index.html" class="has-text-primary">Log Out</a>
+                <a id = "logout" class="has-text-primary">Log Out</a>
               </p>
             </div>
           </div>
@@ -110,8 +110,7 @@
       const database = getDatabase(app);
       const auth = getAuth();
       let login = document.getElementById('login');
-      let logout = document.getElementById('logoutbtn');
-
+      let logout = document.getElementById('logout');
       //login section
       login.addEventListener('click', (e) => {
         var email = document.getElementById('login-email').value;

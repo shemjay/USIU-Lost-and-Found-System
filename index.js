@@ -33,9 +33,7 @@
     const database = getDatabase(app);
     const auth = getAuth();
     let signup = document.getElementById('signup');
-    let logout2 = document.getElementById('logoutbtn2').value;
-
-
+    let logout = document.getElementById('logout');
 
   //Signup section
   signup.addEventListener('click',(e) => {
@@ -65,38 +63,24 @@
               });
       });
       
-//louout section
-var logout = document.getElementById('logoutbtn').value;
-
-logout.addEventListener("click", (e) => {
-  signOut(auth)
-    .then(() => {
+// loguout section //
+logout.addEventListener('click', (e) => {
+  signOut(auth).then(() => {
       // Sign-out successful.
-      alert("Signed out successfully!");
-    })
-    .catch((error) => {
+      alert('Signed out successfully!');
+      // window.location.href="login.html" //
+  }).catch((error) => {
       // An error happened.
       const errorCode = error.code;
       const errorMessage = error.message;
-
+      
       alert(errorMessage);
-    });
+  });
+
 });
 
-//logout section for main
-logout2.addEventListener("click", (e) => {
-  signOut(auth)
-    .then(() => {
-      // Sign-out successful.
-      alert("Signed out successfully!");
-    })
-    .catch((error) => {
-      // An error happened.
-      const errorCode = error.code;
-      const errorMessage = error.message;
 
-      alert(errorMessage);
-    });
-});
+
+
 
 
