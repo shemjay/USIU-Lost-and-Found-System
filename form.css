@@ -95,10 +95,10 @@ form .input-box span.details{
     transition: all 0.3s ease;
   }
 
-form .textarea input:focus,
+/* form .textarea input:focus,
 form .textarea input:valid,{
     border-color: #9b59b6;
-}
+} */
 
  form .category label .dot{
   height: 18px;

@@ -19,28 +19,28 @@
             <div class="user-details">
               <div class="input-box">
                 <span class="details">Item name</span>
-                <input type="text" placeholder="e.g 'bottle' 'ID Card'" required>
+                <input type="text" id = "itemName" placeholder="e.g 'bottle' 'ID Card'" required>
               </div>
               <div class="input-box">
                 <span class="details">ID number</span>
-                <input type="text" placeholder="e.g 66234" required>
+                <input type="text" id = "idNumber" placeholder="e.g 66234" required>
               </div>
               <div class="input-box">
                 <span class="details">Item description</span>
-                <textarea placeholder="e.g Blue nike shoes size 7" class="details textarea" required></textarea>
+                <textarea id = "itemDesc" placeholder="e.g Blue nike shoes size 7" class="details textarea" required></textarea>
               </div>
               <div class="input-box">
                 <span class="details">Last seen location</span>
-                <textarea placeholder="e.g on a desk in School of Business" class="details textarea" required></textarea>
+                <textarea id = "lastSeen" placeholder="e.g on a desk in School of Business" class="details textarea" required></textarea>
               </div>
               <div class="input-box">
                 <span class="details">Unique Identifier</span>
-                <textarea placeholder="e.g Has small a crack underneath" class="details textarea"></textarea>
+                <textarea id = "unique" placeholder="e.g Has small a crack underneath" class="details textarea"></textarea>
               </div>
               <div class="input-box">
                 <span class="details">Image upload (in progress)</span>
                 <!-- <input type="image" name="image" id="image" value = "submit"/><br /> -->
-                <input type="submit" type = "submit" name="submit" value="Submit" />
+                <input type="submit" name="submit" value="Submit" />
               </div>
             </div>
             <div class="gender-details">
@@ -60,11 +60,11 @@
               </div>
             </div>
             <div class="button">
-              <input type="submit" value="Submit">
+              <input id = "submitBtn" type="submit" value="Submit">
             </div>
           </form>
         </div>
-            <script type="module" src="index.js"></script>
+            <script type="module" src="firestore.js" defer></script>
             <script src="main.js"></script>
     <!-- end -->
 </body>
