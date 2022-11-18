@@ -62,9 +62,15 @@
     
     <!-- CRUD Table -->
     <section>
-      <h2>Lost Items</h2>
+      
 <div class="table-wrapper">
-    <table class="fl-table">
+  <div class = "buttons">
+    <a class = "button is-primary" id = "getData">
+      <strong>Search</strong>
+    </a>
+  </div>
+  <h2>Lost Items</h2>
+    <table class="fl-table" id = "dataTbl">
         <thead>
         <tr>
             <th>Item Name</th>
@@ -76,11 +82,11 @@
         </thead>
         <tbody>
         <tr>
-            <td>Content 1</td>
-            <td>Content 1</td>
-            <td>Content 1</td>
-            <td>Content 1</td>
-            <td>Content 1</td>
+            <td>Bottle</td>
+            <td>Blue bottle with nike logo</td>
+            <td>660408</td>
+            <td>Inside a desk at school of business</td>
+            <td>N/A</td>
         </tr>
         <tbody>
     </table>
@@ -89,7 +95,7 @@
     </main>
 
 
-    <script type="module" src="index.js"></script>
+    <script type="module" src="firestore.js"></script>
     <script src="main.js"></script>
 </body>
 </html>

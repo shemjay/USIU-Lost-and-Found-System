@@ -1,6 +1,6 @@
 //Firestore CRUD //
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-app.js";
-import { getDatabase, set, ref, push, child } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-database.js"; //try changing to firestore if problems arise maybe
+import { getDatabase, set, ref, push, child, onValue } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-database.js"; //try changing to firestore if problems arise maybe
 
   // Your web app's Firebase configuration
   const firebaseConfig = {
@@ -16,18 +16,17 @@ import { getDatabase, set, ref, push, child } from "https://www.gstatic.com/fire
   // Initialize Firebase
   const app = initializeApp(firebaseConfig);
   const database = getDatabase(app);
-  let signup = document.getElementById('signup');
-  let logout = document.getElementById('logout');
+  let submitBtn = document.getElementById('submitBtn');
+  let getData = document.getElementById('getData');
 
-
-submitBtn.addEventListener('click',(e) => {
+ submitBtn.addEventListener('click',(e) => {
     var itemName = document.getElementById('itemName').value;
     var idNumber = document.getElementById('idNumber').value;
     var itemDesc = document.getElementById('itemDesc').value;
     var lastSeen = document.getElementById('lastSeen').value;
     var unique = document.getElementById('unique').value;
 
-    const userId = push(child(ref(database), 'Lost-Items')).key;
+    const userId = push(child(ref(database), 'Lost-Items/')).key;
 
     set(ref(database, 'Lost-Items' + userId), {
       itemName: itemName,
@@ -38,4 +37,31 @@ submitBtn.addEventListener('click',(e) => {
     });
     console.log('success');
     alert('New entry successfully created');
+});
+
+getData.addEventListener('click',(e) => {
+
+    $('#dataTbl td').remove(); //clears the table data //
+    var rowNum = 0;
+
+const dbRef = ref(database, 'Lost-Items/');
+
+onValue(dbRef, (snapshot) => {
+  snapshot.forEach((childSnapshot) => {
+    const childKey = childSnapshot.key;
+    const childData = childSnapshot.val();
+    // ...
+    rowNum += 1;
+    var row = "<tr><td>" + childData.itemName + "</td></tr>" + "<tr><td>" + childData.idNumber + "</td></tr>" + 
+    "<tr><td>" + childData.itemDesc + "</td></tr>" + "<tr><td>" + childData.lastSeen + "</td></tr>" + 
+    "<tr><td>" + childData.unique + "</td></tr>"
+
+    $(row).appendTo('#dataTbl');
+
+  });
+}, {
+  onlyOnce: true
+});
+
+
 });
