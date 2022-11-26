@@ -58,7 +58,7 @@
                   const errorCode = error.code;
                   const errorMessage = error.message;
 
-                  alert('User not recognized please sign up');
+                  alert('Error please try again');
                   // ..
               });
       });
