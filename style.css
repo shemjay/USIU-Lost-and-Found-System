@@ -1,16 +1,8 @@
 /* Color Variables */
 :root {
-  --blue: rgb(rgb(40,56,144));
+  --blue: rgb(40,56,144);
   --yellow: rgb(254,213,0);
   --white: rgb(255,255,255);
-}
-
-
-/* Box sizing rules */
-body
- {
-  box-sizing: border-box;
-  background-color: rgb(40,56,144);
 }
 
 /* Remove default margin */
@@ -40,7 +32,7 @@ html:focus-within {
 
 /* Set core body defaults */
 body {
-  height: 100vh;
+  height: 100vh !important;
   text-rendering: optimizeSpeed;
   line-height: 1.5;
 }
@@ -60,7 +52,68 @@ select {
   font: inherit;
 }
 
-.image.is-4by1 {
-  padding-top: 25%;
+/* page styles */
+body
+ {
+  box-sizing: border-box;
+  background-color: rgb(40, 56, 144) !important;
+}
+
+nav {
+  background-color: var(--yellow) !important;
+}
+
+.navbar {
+  background-color: var(--yellow) !important;
+  list-style-type: none !important;
+  text-decoration: none !important;
+}
+
+input {
+  border-color: var(--blue) !important;
+}
+
+form button {
+  background-color: var(--blue) !important;
+}
+
+#logBtn {
+  background-color: var(--blue) !important;
+  color: var(--white) !important;
+}
+
+#logout {
+  background-color: var(--blue) !important;
+  color: var(--white) !important;
+}
+
+.column .error {
+  display: flex;
+  justify-content: left;
+  color: red;
+  margin-top: 6px;
+  display: none;
+}
+
+.column .error-icon {
+  margin-right: 6px;
+  font-size: 15px;
+  margin-top: 5px;
+}
+
+.invalid .error {
+  display: flex;
+}
+
+.jumbotron {
+  padding: 1rem 1 rem!important;
+  margin-bottom: 1rem!important;
+  background-color: rgb(40,56,144)!important;
+  border-radius: .3rem!important;
+  text-align: center;
+}
+
+table th {
+  color: #f8f9fa!important;
 }
 

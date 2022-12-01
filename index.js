@@ -1,21 +1,8 @@
     //FIREBASE AUTH
     // Import the functions you need from the SDKs you need
-    import {
-      initializeApp
-    } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-app.js";
-    import {
-      getDatabase,
-      set,
-      ref,
-      update
-    } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-database.js";
-    import {
-      getAuth,
-      createUserWithEmailAndPassword,
-      signInWithEmailAndPassword
-    } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-auth.js";
-    // TODO: Add SDKs for Firebase products that you want to use
-    // https://firebase.google.com/docs/web/setup#available-libraries
+    import {initializeApp} from "https://www.gstatic.com/firebasejs/9.13.0/firebase-app.js";
+    import {getDatabase, set,ref} from "https://www.gstatic.com/firebasejs/9.13.0/firebase-database.js";
+    import { getAuth, createUserWithEmailAndPassword, signOut} from "https://www.gstatic.com/firebasejs/9.13.0/firebase-auth.js";
 
     // Your web app's Firebase configuration
     const firebaseConfig = {
@@ -34,6 +21,7 @@
     const auth = getAuth();
     let signup = document.getElementById('signup');
     let logout = document.getElementById('logout');
+
 
   //Signup section
   signup.addEventListener('click',(e) => {
@@ -62,24 +50,57 @@
                   // ..
               });
       });
+
+    //log out the user //
+    logout.addEventListener("click", (e) => {
+      signOut(auth)
+        .then(() => {
+          // Sign-out successful.
+          alert("Signed out successfully!");
+          // window.location.href="login.html" //
+        })
+        .catch((error) => {
+          // An error happened.
+          const errorCode = error.code;
+          const errorMessage = error.message;
+
+          alert(errorMessage);
+        });
+    });
+
       
-// loguout section //
-logout.addEventListener('click', (e) => {
-  signOut(auth).then(() => {
-      // Sign-out successful.
-      alert('Signed out successfully!');
-      // window.location.href="login.html" //
-  }).catch((error) => {
-      // An error happened.
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      
-      alert(errorMessage);
+
+
+// Navigation section //
+document.addEventListener('DOMContentLoaded', () => {
+
+  // Get all "navbar-burger" elements
+  const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+
+  // Add a click event on each of them
+  $navbarBurgers.forEach( el => {
+    el.addEventListener('click', () => {
+
+      // Get the target from the "data-target" attribute
+      const target = el.dataset.target;
+      const $target = document.getElementById(target);
+
+      // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+      el.classList.toggle('is-active');
+      $target.classList.toggle('is-active');
+
+    });
   });
 
 });
 
-//website CRUD
+
+
+
+
+
+
+
 
 
 

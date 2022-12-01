@@ -2,18 +2,20 @@
 <html lang="en">
 
 <head>
-  <link rel="stylesheet" href= "style.css">
-  <link rel="stylesheet" href= "lost.css">
+  <!-- Bulma CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href= "style.css">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>My Website</title>
-  <link rel="icon" href="./favicon.ico" type="image/x-icon">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css">
 </head>
 
 <body>
   <main>
+
     <section>
         <!-- Navbar -->
         <nav class="navbar" role="navigation" aria-label="main navigation">
@@ -60,42 +62,18 @@
         </nav>
     </section>
     
-    <!-- CRUD Table -->
+    <!-- Title -->
     <section>
-      
-<div class="table-wrapper">
-  <div class = "buttons">
-    <a class = "button is-primary" id = "getData">
-      <strong>Search</strong>
-    </a>
-  </div>
-  <h2>Lost Items</h2>
-    <table class="fl-table" id = "dataTbl">
-        <thead>
-        <tr>
-            <th>Item Name</th>
-            <th>Item Description</th>
-            <th>Student ID</th>
-            <th>Last seen location</th>
-            <th>Unique ID</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-            <td>Bottle</td>
-            <td>Blue bottle with nike logo</td>
-            <td>660408</td>
-            <td>Inside a desk at school of business</td>
-            <td>N/A</td>
-        </tr>
-        <tbody>
-    </table>
-</div>
+
     </section>
+
+
     </main>
-
-
-    <script type="module" src="firestore.js"></script>
     <script src="main.js"></script>
+    <script type = "module" src="https://www.gstatic.com/firebasejs/9.14.0/firebase-app.js"></script>
+    <script type="module" src="https://www.gstatic.com/firebasejs/9.14.0/firebase-firestore.js"></script>
+    <script type="module" src = "crud.js"></script>
+    
 </body>
 </html>
+
