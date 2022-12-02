@@ -34,33 +34,10 @@
 
 //Adding Document to Firestore with Auto ID
 
-//  async function AddDocument_AutoID(){
-//   var ref = collection(db,"Lost Items");
+ async function AddDocument_AutoID(){
+  var ref = collection(db,"Lost Items");
 
-//   const docRef = await addDoc(
-//     ref, {
-//       ItemName: Itembox.value,
-//       IDnumber: IDbox.value,
-//       ItemDescription: Descbox.value,
-//       LastSeenLocation: Lastseenbox.value,
-//       UniqueID: Uniquebox.value,
-//       ItemType: Typebox.value
-//     }
-//   )
-//   .then(()=> {
-//     alert("Data added successfully");
-//     // console.log("success");
-//   })
-//   .catch((error) => {
-//     alert("Unsuccessful operation, error: "+ error);
-//   });
-//  }
-
-//Adding Document to Firestore with Custom ID
-async function AddDocument_CustomID(){
-  var ref = doc(db,"Lost Items", IDbox.value);
-
-  const docRef = await setDoc(
+  const docRef = await addDoc(
     ref, {
       ItemName: Itembox.value,
       IDnumber: IDbox.value,
@@ -79,6 +56,30 @@ async function AddDocument_CustomID(){
   });
  }
 
+//Adding Document to Firestore with Custom ID
+async function AddDocument_CustomID(){
+  var ref = doc(db,"Lost Items", IDbox.value);
+
+  await setDoc( // const docRef = await setDoc(
+    ref, {
+      ItemName: Itembox.value,
+      IDnumber: IDbox.value,
+      ItemDescription: Descbox.value,
+      LastSeenLocation: Lastseenbox.value,
+      UniqueID: Uniquebox.value,
+      ItemType: Typebox.value
+    }
+  )
+  .then(()=> {
+    alert("Data added successfully");
+    // console.log("success");
+  })
+  .catch((error) => {
+    alert("Unsuccessful operation, error: "+ error);
+  });
+  console.log("document id is: " +docRef.id());
+ }
+
 
  //Getting a Document from Firestore with Custom ID
  async function GetADocument() {
@@ -88,7 +89,7 @@ async function AddDocument_CustomID(){
   if(docSnap.exists()){
     Itembox.value = docSnap.data().ItemName;
     IDbox.value = docSnap.data().IDnumber;
-    Descbox.value = docSnap.data().ItemDesc;
+    Descbox.value = docSnap.data().ItemDescription;
     Lastseenbox.value = docSnap.data().LastSeenLocation;
     Uniquebox.value = docSnap.data().UniqueID;
     Typebox.value = docSnap.data().ItemType;
@@ -99,9 +100,53 @@ async function AddDocument_CustomID(){
   }
  }
 
+// Update Data from Firestore
+async function updateFieldsInADocument() {
+  var ref = doc(db,"Lost Items", IDbox.value);
+
+  
+   await updateDoc(ref, {
+    ItemName: Itembox.value,
+    IDnumber: IDbox.value,
+    ItemDescription: Descbox.value,
+    LastSeenLocation: Lastseenbox.value,
+    UniqueID: Uniquebox.value,
+    ItemType: Typebox.value,
+  })
+    .then(() => {
+      alert("Data updated successfully");
+      // console.log("success");
+    })
+    .catch((error) => {
+      alert("Unsuccessful operation, error: " + error);
+    });
+}
+
+// Delete the data
+    async function deleteDocument() {
+      var ref = doc(db, "Lost Items", IDbox.value);
+      const docSnap = await getDoc(ref);
+
+      if (!docSnap.exists()) {
+          alert("This document does not exist");
+          return;
+      }
+      await deleteDoc(ref)
+      .then(() => {
+        alert(" Data deleted successfully");
+      })
+      .catch((error) => {
+        alert("Unsuccessful operation, error: " + error);
+      });
+    }
+
+
  //Assign Events to the CRUD Buttons
 //  Createbtn.addEventListener("click", AddDocument_AutoID); //Creat with Auto ID
-
-
+ 
  Createbtn.addEventListener("click", AddDocument_CustomID); //Creat with Custom ID
  Readbtn.addEventListener("click", GetADocument);
+ Updatebtn.addEventListener("click", updateFieldsInADocument);
+ Deletebtn.addEventListener("click", deleteDocument);
+
+
