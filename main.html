@@ -62,16 +62,42 @@
         </nav>
     </section>
     
-    <!-- Title -->
-    <section>
+    <!-- CRUD -->
+    <section id = "crud">
+      <h1 id = "itemTable">USIU Lost and Found Items</h1>
+
+      <label>Item Name</label>
+      <input id = "Itembox" type = "text">
+
+      <label>School ID</label>
+      <input id = "IDbox" type = "number">
+
+      <label>Item Description</label>
+      <textarea id = "Descbox"></textarea>
+
+      <label>Last Seen Location</label>
+      <textarea id = "Lastseenbox"></textarea>
+
+      <label>Unique Identifier</label>
+      <textarea id = "Uniquebox"></textarea>
+
+      <label>Item Type</label>
+      <select id = "Typebox">
+      <option value = "I lost it">I lost it</option>
+      <option value = "I found it">I found it</option>
+      </select>
+
+      <hr>
+      <button id = "Createbtn">Add</button>
+      <button id = "Readbtn">Read</button>
+      <button id = "Updatebtn">Update</button>
+      <button id = "Deletebtn">Delete</button>
 
     </section>
 
 
     </main>
     <script src="main.js"></script>
-    <script type = "module" src="https://www.gstatic.com/firebasejs/9.14.0/firebase-app.js"></script>
-    <script type="module" src="https://www.gstatic.com/firebasejs/9.14.0/firebase-firestore.js"></script>
     <script type="module" src = "crud.js"></script>
     
 </body>
