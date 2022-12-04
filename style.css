@@ -32,9 +32,19 @@ html:focus-within {
 
 /* Set core body defaults */
 body {
-  height: 100vh !important;
+  height: 100vh;
   text-rendering: optimizeSpeed;
   line-height: 1.5;
+}
+
+/* Signup body styles */
+#signupBody {
+  height: 100%!important;
+}
+
+/* Main html body */
+#mainBody {
+  height: 100%!important;
 }
 
 /* Make images easier to work with */
@@ -53,9 +63,8 @@ select {
 }
 
 /* page styles */
-body
+body, html
  {
-  box-sizing: border-box;
   background-color: rgb(40, 56, 144) !important;
 }
 
@@ -76,13 +85,41 @@ input {
 form button {
   background-color: var(--blue) !important;
 }
+/* login button on sign up form */
+.is-size-7 a {
+  color: rgb(40, 56, 144) !important;
+}
+/* signup button sign up form */
+#signup:hover {
+  background: rgb(255,255,255) !important;
+  border: 2px solid rgb(40, 56, 144) !important;
+  color: rgb(40, 56, 144);
+}
+/* login button login page*/
+#login {
+  background-color: rgb(40, 56, 144) !important;
+  color: rgb(255,255,255) !important;
+}
 
+/* signup button sign up form */
+#login:hover {
+  background-color: rgb(255,255,255) !important;
+  border: 2px solid rgb(40, 56, 144) !important;
+  color: rgb(40, 56, 144) !important;
+}
+
+/* Sign up form nav login */
 #logBtn {
   background-color: var(--blue) !important;
   color: var(--white) !important;
 }
 
 #logout {
+  background-color: var(--blue) !important;
+  color: var(--white) !important;
+}
+
+#signInBtn {
   background-color: var(--blue) !important;
   color: var(--white) !important;
 }
@@ -145,6 +182,9 @@ li span:nthchild {
   border-radius: 5px;
 }
 
+th {
+  color: rgb(255,255,255)!important;
+}
 
 
 

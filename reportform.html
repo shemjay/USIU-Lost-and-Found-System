@@ -2,70 +2,94 @@
 <html>
 <head>
 	<title>Contact us</title>
-	<link rel="stylesheet" type="text/css" href="form.css">
-	<link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
-    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"> -->
+  <!-- Bulma CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <link rel ="stylesheet" href = "style.css">
 	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta charset="UTF-8">
 </head>
 <body>
-    
-    <!-- Report item form -->
-    <div class="container">
-        <div class="title">Report your item</div>
-        <div class="content">
-          <form action="#">
-            <div class="user-details">
-              <div class="input-box">
-                <span class="details">Item name</span>
-                <input type="text" id = "itemName" placeholder="e.g 'bottle' 'ID Card'" required>
-              </div>
-              <div class="input-box">
-                <span class="details">ID number</span>
-                <input type="text" id = "idNumber" placeholder="e.g 66234" required>
-              </div>
-              <div class="input-box">
-                <span class="details">Item description</span>
-                <textarea id = "itemDesc" placeholder="e.g Blue nike shoes size 7" class="details textarea" required></textarea>
-              </div>
-              <div class="input-box">
-                <span class="details">Last seen location</span>
-                <textarea id = "lastSeen" placeholder="e.g on a desk in School of Business" class="details textarea" required></textarea>
-              </div>
-              <div class="input-box">
-                <span class="details">Unique Identifier</span>
-                <textarea id = "unique" placeholder="e.g Has small a crack underneath" class="details textarea"></textarea>
-              </div>
-              <div class="input-box">
-                <span class="details">Image upload (in progress)</span>
-                <!-- <input type="image" name="image" id="image" value = "submit"/><br /> -->
-                <input type="submit" name="submit" value="Submit" />
-              </div>
-            </div>
-            <div class="gender-details">
-              <input type="radio" name="gender" id="dot-1">
-              <input type="radio" name="gender" id="dot-2">
-              <input type="radio" name="gender" id="dot-3">
-              <span class="gender-title">Item  type</span>
-              <div class="category">
-                <label for="dot-1">
-                <span class="dot one"></span>
-                <span class="gender">I lost it</span>
-              </label>
-              <label for="dot-2">
-                <span class="dot two"></span>
-                <span class="gender">I found it</span>
-              </label>
-              </div>
-            </div>
-            <div class="button">
-              <input id = "submitBtn" type="submit" value="Submit">
-            </div>
-          </form>
+<!-- Navbar -->
+<section>
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand py-1">
+      <a class="navbar-item" href="index.html">
+        <img src="img/usiu.png" width = "80" height = "80">
+      </a>
+  
+      <a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+  
+    <div class="navbar-menu" id="navMenu">
+      <div class="navbar-end">
+        <a class="navbar-item" href = "main.html">
+          Lost and Found Items
+        </a>
+
+        <a class="navbar-item" href = "returned.html">
+          Returned
+        </a>
+  
+        <a class="navbar-item" href = "reportform.html">
+          Report an Item 
+        </a>
+      </div>
+  
+      <div class="navbar">
+        <div class="navbar-item">
+          <div class="buttons">
+            <a class="button is-primary" href = "index.html">
+              <strong>Sign up</strong>
+            </a>
+            <a id = "logout" class="button is-light">
+              Log Out
+            </a>
+          </div>
         </div>
-            <script type="module" src="firestore.js" defer></script>
-            <script src="main.js"></script>
-    <!-- end -->
+      </div>
+    </div>
+  </nav>
+</section>
+<!-- Nav end -->
+
+  <!--   CRUD Form -->
+  <section id = "crud">
+    <h1 id = "itemTable">USIU Lost and Found Items</h1>
+
+    <label>Item Name</label>
+    <input id = "Itembox" type = "text">
+
+    <label>School ID</label>
+    <input id = "IDbox" type = "number">
+
+    <label>Item Description</label>
+    <textarea id = "Descbox"></textarea>
+
+    <label>Last Seen Location</label>
+    <textarea id = "Lastseenbox"></textarea>
+
+    <label>Unique Identifier</label>
+    <textarea id = "Uniquebox"></textarea>
+
+    <label>Item Type</label>
+    <select id = "Typebox">
+    <option value = "I lost it">I lost it</option>
+    <option value = "I found it">I found it</option>
+    </select>
+
+    <hr>
+    <button id = "Createbtn">Add</button>
+    <button id = "Readbtn">Read</button>
+    <button id = "Updatebtn">Update</button>
+    <button id = "Deletebtn">Delete</button>
+  </section> 
 </body>
+
+<script type = "module" src = "crud.js"></script>
+<script type = "module" src = "index.js"></script>
 </html>

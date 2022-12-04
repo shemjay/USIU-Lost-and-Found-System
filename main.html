@@ -9,11 +9,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css">
+  <!-- Bootstrap 4.4 CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
 
-<body>
+<body id = "mainBody">
   <main>
 
     <section>
@@ -34,11 +34,11 @@
           <div class="navbar-menu" id="navMenu">
             <div class="navbar-end">
               <a class="navbar-item">
-                Lost Items
+                Lost and Found Items
               </a>
 
-              <a class="navbar-item" href = "found.html">
-                Found Items
+              <a class="navbar-item" href = "returned.html">
+                Returned Items
               </a>
         
               <a class="navbar-item" href = "reportform.html">
@@ -61,44 +61,33 @@
           </div>
         </nav>
     </section>
-    
-    <!-- CRUD -->
-    <section id = "crud">
       <h1 id = "itemTable">USIU Lost and Found Items</h1>
 
-      <label>Item Name</label>
-      <input id = "Itembox" type = "text">
 
-      <label>School ID</label>
-      <input id = "IDbox" type = "number">
+    
 
-      <label>Item Description</label>
-      <textarea id = "Descbox"></textarea>
-
-      <label>Last Seen Location</label>
-      <textarea id = "Lastseenbox"></textarea>
-
-      <label>Unique Identifier</label>
-      <textarea id = "Uniquebox"></textarea>
-
-      <label>Item Type</label>
-      <select id = "Typebox">
-      <option value = "I lost it">I lost it</option>
-      <option value = "I found it">I found it</option>
-      </select>
-
-      <hr>
-      <button id = "Createbtn">Add</button>
-      <button id = "Readbtn">Read</button>
-      <button id = "Updatebtn">Update</button>
-      <button id = "Deletebtn">Delete</button>
+    <!-- CRUD Table -->
+    <section>
+      <div class = "container mt-3">
+        <table class = "table table-dark text-white">
+          <thead>
+            <th>ItemName</th>
+            <th>SchoolID</th>
+            <th>ItemDescription</th>
+            <th>LastSeenLocation</th>
+            <th>UniqueIdentifier</th>
+            <th>ItemType</th>
+          </thead>
+          <tbody id="tbody1"></tbody>
+        </table>
+      </div>
 
     </section>
 
 
     </main>
     <script src="main.js"></script>
-    <script type="module" src = "crud.js"></script>
+    <script type="module" src = "display.js"></script>
     
 </body>
 </html>
