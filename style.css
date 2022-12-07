@@ -89,6 +89,12 @@ form button {
 .is-size-7 a {
   color: rgb(40, 56, 144) !important;
 }
+
+#signup {
+  background-color:rgb(40, 56, 144)!important;
+  color: rgb(255,255,255);
+}
+
 /* signup button sign up form */
 #signup:hover {
   background: rgb(255,255,255) !important;
@@ -123,6 +129,10 @@ form button {
   background-color: var(--blue) !important;
   color: var(--white) !important;
 }
+
+.has-text-weight-bold:hover {
+  color: rgb(254,213,0)!important;
+} 
 
 .column .error {
   display: flex;

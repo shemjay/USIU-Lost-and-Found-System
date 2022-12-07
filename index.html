@@ -8,9 +8,6 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>My Website</title>
   <link rel="stylesheet" href="style.css">
-  <link rel="icon" href="./favicon.ico" type="image/x-icon">
-  <!-- Form icons -->
-  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 
 <body id = "signupBody">
@@ -51,12 +48,12 @@
         <div class="hero is-fullheight">
             <div class="hero-body is-justify-content-center is-align-items-center">
                 <div class="columns is-flex is-flex-direction-column box">
-                  <form method="/">
+                  
                   <h1 class="title">Please enter your credentials</h1>
                     <div class="column emailField">
                         <label for="email">School Email</label>
                         <div class = "inputField">
-                        <input id="signup-email" class="input is-primary email" type="text" placeholder="Email address" required>
+                        <input id="signup-email" class="input email" type="text" placeholder="Email address" required>
                         </div>
                         <span class = "error email-error">
                           <i class='bx bx-error-circle error-icon'></i>
@@ -65,7 +62,7 @@
                     </div>
                     <div class="column usernameField">
                         <label for="Name">Username</label>
-                        <input id="signup-user" class="input is-primary username" type="username" placeholder="Username" required>
+                        <input id="signup-user" class="input username" type="username" placeholder="Username" required>
                         <span class = "error username-error">
                           <i class='bx bx-error-circle error-icon'></i>
                           <p class = "error-text">Please enter only alphabetical letters</p>
@@ -73,7 +70,7 @@
                     </div>
                     <div class="column schoolField">
                         <label for="Name">School ID</label>
-                        <input id="signup-id" class="input is-primary schoolID" type="text" placeholder="School ID" >
+                        <input id="signup-id" class="input schoolID" type="text" placeholder="School ID" >
                         <span class = "error schoolID-error">
                           <i class='bx bx-error-circle error-icon'></i>
                           <p class = "error-text">School ID should only contain digits</p>
@@ -81,7 +78,7 @@
                     </div>
                     <div class="column passwordField">
                         <label for="Name">Password</label>
-                        <input id="signup-pwd" class="input is-primary password" type="password" placeholder="Password" required>
+                        <input id="signup-pwd" class="input password" type="password" placeholder="Password" required>
                         <span class = "error password-error">
                           <i class='bx bx-error-circle error-icon'></i>
                           <p class = "error-text">Please enter at least 8 characters with a number, symbol<br> and uppercase and lowercase character</p>
@@ -89,14 +86,14 @@
                         <!-- <a href="#navbar" class="is-size-7 has-text-primary">forget password?</a> -->
                     </div>
                     <div class="column">
-                        <button id="signup" class="button is-primary is-fullwidth" type="submit"><strong>Sign Up</strong></button>
+                        <button id="signup" class="button is-fullwidth" type="submit"><strong>Sign Up</strong></button>
                     </div>
                     <div class="has-text-centered">
-                        <p class="is-size-7"> Already have an account? <a href="login.html" id = "logTxt" class="has-text-primary">Login
+                        <p class="is-size-7"> Already have an account? <a href="login.html" id = "logTxt" class="has-text-weight-bold">Login
                                 </a>
                         </p>
                     </div>
-                  </form>
+                  
                 </div>
             </div>
         </div>

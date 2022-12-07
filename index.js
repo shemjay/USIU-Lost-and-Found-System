@@ -1,7 +1,7 @@
     //FIREBASE AUTH
     // Import the functions you need from the SDKs you need
     import {initializeApp} from "https://www.gstatic.com/firebasejs/9.13.0/firebase-app.js";
-    import {getDatabase, set,ref} from "https://www.gstatic.com/firebasejs/9.13.0/firebase-database.js";
+    import {getDatabase, set,ref,update} from "https://www.gstatic.com/firebasejs/9.13.0/firebase-database.js";
     import { getAuth, createUserWithEmailAndPassword, signOut} from "https://www.gstatic.com/firebasejs/9.13.0/firebase-auth.js";
 
     // Your web app's Firebase configuration
@@ -30,13 +30,14 @@
       var schoolID = document.getElementById('signup-id').value;
       var password = document.getElementById('signup-pwd').value;
       
-          createUserWithEmailAndPassword(auth, email, password)
+          createUserWithEmailAndPassword(auth, email, password, schoolID)
               .then((userCredential) => {
                   // Signed in 
                   const user = userCredential.user;
 
-                  set(ref(database, 'user/' + user.id),{
+                  update(ref(database, "user/" +user.uid),{
                       username: username,
+                      schoolID: schoolID,
                       email: email
                   })
                   alert('User Created!');
@@ -45,28 +46,27 @@
               .catch((error) => {
                   const errorCode = error.code;
                   const errorMessage = error.message;
-
+                  
                   alert('Error please try again');
                   // ..
               });
       });
 
     //log out the user //
-    logout.addEventListener("click", (e) => {
-      signOut(auth)
-        .then(() => {
+    logout.addEventListener('click', (e) => {
+      signOut(auth).then(() => {
           // Sign-out successful.
-          alert("Signed out successfully!");
+          alert('Signed out successfully!');
           // window.location.href="login.html" //
-        })
-        .catch((error) => {
+      }).catch((error) => {
           // An error happened.
           const errorCode = error.code;
           const errorMessage = error.message;
-
+          
           alert(errorMessage);
-        });
-    });
+      });
+
+  });
 
       
 

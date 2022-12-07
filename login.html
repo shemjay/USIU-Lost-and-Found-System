@@ -8,7 +8,6 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>My Website</title>
   <link rel="stylesheet" href="style.css">
-  <link rel="icon" href="./favicon.ico" type="image/x-icon">
 </head>
 
 <body>
@@ -34,7 +33,7 @@
               <a class="button" href = "index.html" id = "signInBtn">
                 <strong>Sign up</strong>
               </a>
-              <a id = "logout" class="button">
+              <a class="button" id = "logout">
                 <strong>Log Out</strong>
               </a>
             </div>
@@ -51,21 +50,19 @@
           <div class="columns is-flex is-flex-direction-column box">
             <div class="column">
               <h1 class="title">Please enter your credentials</h1>
-              <label for="email">Email</label>
-              <input id="login-email" class="input is-primary" type="text" placeholder="Email address" required>
+              <label for="email">School Email</label>
+              <input id="login-email" class="input" type="text" placeholder="Email address" required>
             </div>
             <div class="column">
               <label for="Name">Password</label>
-              <input id="login-pwd" class="input is-primary" type="password" placeholder="Password" required>
+              <input id="login-pwd" class="input" type="password" placeholder="Password" required minlength="7">
               <!-- <a href="forget.html" class="is-size-7 has-text-primary">forget password?</a> -->
             </div>
             <div class="column">
-              <button id="login" class="button is-primary is-fullwidth" type="submit"><strong>Login</strong></button>
+              <button id="login" class="button is-fullwidth" type="submit"><strong>Login</strong></button>
             </div>
             <div class="has-text-centered">
-              <p class="is-size-7"> Don't have an account? <a href="index.html" class="has-text-primary">Sign up</a> 
-                
-              </p>
+              <p class="is-size-7"> Don't have an account? <a href="index.html" class="has-text-weight-bold">Sign up</a></p>
             </div>
           </div>
         </div>
@@ -74,27 +71,13 @@
   </main>
   <script type="module">
         //FIREBASE AUTH
-    // Import the functions you need from the SDKs you need
-    import {
-        initializeApp
-      } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-app.js";
-      import {
-        getDatabase,
-        set,
-        ref,
-        update
-      } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-database.js";
-      import {
-        getAuth,
-        createUserWithEmailAndPassword,
-        signInWithEmailAndPassword,
-        onAuthStateChanged,
-        signOut
-      } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-auth.js";
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-app.js";
+      import { getDatabase, set, ref, update } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-database.js";
+      import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut} from "https://www.gstatic.com/firebasejs/9.13.0/firebase-auth.js";
       // TODO: Add SDKs for Firebase products that you want to use
       // https://firebase.google.com/docs/web/setup#available-libraries
   
-      // Your web app's Firebase configuration
+      // web app's Firebase configuration
       const firebaseConfig = {
         apiKey: "AIzaSyAalz5fFuOOG6_EZVFIO-hJRA2Sw1Yyg2A",
         authDomain: "lost-and-found-system-67568.firebaseapp.com",
@@ -111,6 +94,7 @@
       const auth = getAuth();
       let login = document.getElementById('login');
       let logout = document.getElementById('logout');
+
       //login section
       login.addEventListener('click', (e) => {
         var email = document.getElementById('login-email').value;
@@ -122,7 +106,7 @@
             const user = userCredential.user;
   
             const dt = new Date();
-            update(ref(database, 'user/' + user.id), {
+            update(ref(database, 'user' +user.id), {
               last_login: dt,
             })
   
@@ -142,6 +126,7 @@
     onAuthStateChanged(auth, (user) => {
         if (user) {
             window.location.href="main.html";
+            console.log("success!");
             // User is signed in, see docs for a list of available properties
             // https://firebase.google.com/docs/reference/js/firebase.User
             const uid = user.uid;
@@ -170,6 +155,9 @@
 
     });
 
+
+
   </script>
+  <script src = "main.js"></script>
 </body>
 </html>

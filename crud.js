@@ -1,5 +1,6 @@
  // Import the functions you need from the SDKs you need
  import {initializeApp} from "https://www.gstatic.com/firebasejs/9.13.0/firebase-app.js";
+ import {getDatabase, set,ref} from "https://www.gstatic.com/firebasejs/9.13.0/firebase-database.js";
  import {getFirestore, doc, getDoc, getDocs, setDoc, collection,  addDoc, updateDoc, deleteDoc, deleteField, onSnapshot} from "https://www.gstatic.com/firebasejs/9.13.0/firebase-firestore.js";
 
 
@@ -17,7 +18,9 @@
  // Initialize Firebase
  const app = initializeApp(firebaseConfig);
  // Initialize Cloud Firestore and get a reference to the service
- const db = getFirestore(app); //before const db = getFirestore(app);
+ const db = getFirestore(app); 
+//Logout Feature
+
 
 //References 
  let Itembox = document.getElementById("Itembox");
@@ -150,3 +153,4 @@ async function updateFieldsInADocument() {
  Deletebtn.addEventListener("click", deleteDocument);
 
 
+ 

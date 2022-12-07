@@ -1,5 +1,6 @@
  // Import the functions you need from the SDKs you need
  import {initializeApp} from "https://www.gstatic.com/firebasejs/9.13.0/firebase-app.js";
+ import {getDatabase, set,ref} from "https://www.gstatic.com/firebasejs/9.13.0/firebase-database.js";
  import {getFirestore, doc, getDoc, getDocs, setDoc, collection,  addDoc, updateDoc, deleteDoc, deleteField, onSnapshot} from "https://www.gstatic.com/firebasejs/9.13.0/firebase-firestore.js";
 
 
@@ -17,12 +18,13 @@
  // Initialize Firebase
  const app = initializeApp(firebaseConfig);
  // Initialize Cloud Firestore and get a reference to the service
- const db = getFirestore(app); //before const db = getFirestore(app);
+ const db = getFirestore(app); 
+
 
 /////////////////////////////// Adding Data to the Table ////////////////////////////
 
 var tbody = document.getElementById('tbody1');
-function AddItemToTable(ItemName, IDnumber, ItemDescription, LastSeenLocation, UniqueID, ItemType) {
+function AddItemToTable(ItemName, IDnumber, ItemDescription, LastSeenLocation, UniqueID, ItemType, ControlCentre) {
   let tr = document.createElement("tr");
   let td1 = document.createElement("td");
   let td2 = document.createElement("td");
@@ -38,14 +40,22 @@ function AddItemToTable(ItemName, IDnumber, ItemDescription, LastSeenLocation, U
   td4.innerHTML = LastSeenLocation;
   td5.innerHTML = UniqueID;
   td6.innerHTML = ItemType;
-
+  
+  
+  
   tr.appendChild(td1);
   tr.appendChild(td2);
   tr.appendChild(td3);
   tr.appendChild(td4);
   tr.appendChild(td5);
   tr.appendChild(td6);
+  
 
+  var ControlDiv = document.createElement("div");
+  ControlDiv.innerHTML = '<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter" onClick="fillTboxes(null)">Edit Record</button>';
+  ControlDiv.innerHTML += '<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter" onClick="fillTboxes(null)"Delete Record</button>';
+
+  tr.appendChild(ControlDiv);
   tbody.appendChild(tr);
 
 }
