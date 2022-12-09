@@ -62,23 +62,20 @@
                     </div>
                     <div class="column usernameField">
                         <label for="Name">Username</label>
-                        <input id="signup-user" class="input username" type="username" placeholder="Username" required>
+                        <input id="signup-user" class="input username" type="username" placeholder="Username" required minlength="3" maxlength="15">
                         <span class = "error username-error">
                           <i class='bx bx-error-circle error-icon'></i>
                           <p class = "error-text">Please enter only alphabetical letters</p>
                         </span>
                     </div>
-                    <div class="column schoolField">
+                    <div class="column">
                         <label for="Name">School ID</label>
-                        <input id="signup-id" class="input schoolID" type="text" placeholder="School ID" >
-                        <span class = "error schoolID-error">
-                          <i class='bx bx-error-circle error-icon'></i>
-                          <p class = "error-text">School ID should only contain digits</p>
-                        </span>
+                        <input id="signup-id" class="input schoolID" type="number" placeholder="School ID" required maxlength="6">
+                        
                     </div>
                     <div class="column passwordField">
                         <label for="Name">Password</label>
-                        <input id="signup-pwd" class="input password" type="password" placeholder="Password" required>
+                        <input id="signup-pwd" class="input password" type="password" placeholder="Password" required minlength="7" maxlength="25">
                         <span class = "error password-error">
                           <i class='bx bx-error-circle error-icon'></i>
                           <p class = "error-text">Please enter at least 8 characters with a number, symbol<br> and uppercase and lowercase character</p>

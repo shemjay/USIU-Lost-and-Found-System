@@ -121,8 +121,8 @@ form button {
 }
 
 #logout {
-  background-color: var(--blue) !important;
-  color: var(--white) !important;
+  background-color: rgb(40, 56, 144) !important;
+  color: rgb(255,255,255) !important;
 }
 
 #signInBtn {
@@ -196,6 +196,33 @@ th {
   color: rgb(255,255,255)!important;
 }
 
+.card-title {
+  font-size: 2.5rem;
+  color: rgb(255,255,255);
+}
 
+.card-text {
+  font-size: 2rem;
+  color: rgb(255,255,255);
+}
 
+.list-group-item {
+  font-size: 1rem;
+  color: rgb(254,213,0);
+  background-color: #343a40!important;
+}
+
+.navbar {
+  background-color: rgb(254,213,0)!important;
+  text-decoration: none!important;
+}
+
+.navbar-menu {
+  background-color: rgb(254,213,0)!important;
+}
+
+.mainBtn {
+  background-color: rgb(40, 56, 144) !important;
+  color: var(--white) !important;
+}
 

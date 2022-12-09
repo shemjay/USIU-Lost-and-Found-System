@@ -21,28 +21,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
 });
 
-// //variables declaration
-// const form = document.querySelector('form');
-// const emailField = form.querySelector('.emailField');
-// const emailInput = emailField.querySelector('.email'); //<--
-// const usernameField = form.querySelector('.usernameField');
-// const usernameInput = usernameField.querySelector('username');
-// const schoolField = form.querySelector('.schoolField');
-// const schoolInput = schoolField.querySelector('school');
-// const passwordField = form.querySelector('.passwordField');
-// const passwordInput = passwordField.querySelector('password');
 
-
-// //Email validation
-// function checkEmail() {
-// const emaiPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
-// if (!emailInput.value.match(emaiPattern)) { //<--
-//   return emailField.classList.add("invalid"); //<-- 
-// }
-// emailField.classList.remove("invalid"); //remove invalid class if email value does not match 
-// }
-// //Calling function on form submit
-// form.addEventListener('submit', (e) => {
-//   e.preventDefault(); //Preventing form submit
-//   checkEmail();
-// });
