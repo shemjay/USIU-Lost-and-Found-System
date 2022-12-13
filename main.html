@@ -19,11 +19,11 @@
     <section>
         <!-- Navbar -->
         <nav class="navbar" role="navigation" aria-label="main navigation">
-          <div class="navbar-brand py-1">
+          <div class="navbar-brand py-3">
             <a class="navbar-item" href="landing.html">
               <img src="img/usiu.png" width = "80" height = "80">
             </a>
-            <p class = "lead" id = "displayName">Currently logged in as:</p>
+            
             <a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false">
               <span aria-hidden="true"></span>
               <span aria-hidden="true"></span>
@@ -31,22 +31,18 @@
             </a>
             
           </div>
-        
+          <p class = "lead mt-3 ml-3" id = "displayName">Currently logged in as:</p>
           <div class="navbar-menu" id="navMenu">
             <div class="navbar-end">
-              <a class="navbar-item">
+              <a class="navbar-item nav-list">
                 Lost and Found Items
               </a>
-
-              <a class="navbar-item" href = "returned.html">
-                Returned Items
-              </a>
         
-              <a class="navbar-item" href = "reportform.html">
+              <a class="navbar-item nav-list" href = "reportform.html">
                 Report an Item 
               </a>
 
-              <a class="navbar-item" href = "account.html">
+              <a class="navbar-item nav-list" href = "account.html">
                 My Account 
               </a>
             </div>
@@ -77,7 +73,7 @@
     <section>
       <div class = "container mt-3">
         <div class="input-group mb-3">
-          <input id = "SearchBar" type="text" class="form-control" placeholder="Search a Record" aria-label="Recipient's username" aria-describedby="button-addon2">
+          <input id = "SearchBar" type="text" class="form-control" placeholder="Search a Record" aria-label="Search a Record" aria-describedby="button-addon2">
           <select class="custom-select ml-1 mr-1" id="CategorySelected">
             <option selected value="1">ItemName</option>
             <option value="2">IDNumber</option>
@@ -85,9 +81,11 @@
             <option value="4">LastSeenLocation</option>
             <option value="5">UniqueID</option>
             <option value="6">ItemType</option>
+            <option value="7">ContactInfo</option>
           </select>
           <button id = "SearchBtn" class="btn btn-warning text-white mr-1" type="button">Search</button>
         </div>
+
         <table class = "table table-dark text-white">
           <thead>
             <th>ItemName</th>
@@ -96,7 +94,7 @@
             <th>LastSeenLocation</th>
             <th>UniqueIdentifier</th>
             <th>ItemType</th>
-            <th>ControlCentre</th>
+            <th>ContactInfo</th>
           </thead>
           <tbody id="tbody1"></tbody>
         </table>

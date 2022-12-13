@@ -29,6 +29,7 @@
  let Lastseenbox = document.getElementById("Lastseenbox");
  let Uniquebox = document.getElementById("Uniquebox");
  let Typebox = document.getElementById("Typebox");
+ let Contactbox =document.getElementById("Contactbox");
 
  let Createbtn = document.getElementById("Createbtn");
  let Readbtn = document.getElementById("Readbtn");
@@ -47,7 +48,8 @@
       ItemDescription: Descbox.value,
       LastSeenLocation: Lastseenbox.value,
       UniqueID: Uniquebox.value,
-      ItemType: Typebox.value
+      ItemType: Typebox.value,
+      ContactInfo: Contactbox.value
     }
   )
   .then(()=> {
@@ -70,7 +72,8 @@ async function AddDocument_CustomID(){
       ItemDescription: Descbox.value,
       LastSeenLocation: Lastseenbox.value,
       UniqueID: Uniquebox.value,
-      ItemType: Typebox.value
+      ItemType: Typebox.value,
+      ContactInfo: Contactbox.value
     }
   )
   .then(()=> {
@@ -96,6 +99,7 @@ async function AddDocument_CustomID(){
     Lastseenbox.value = docSnap.data().LastSeenLocation;
     Uniquebox.value = docSnap.data().UniqueID;
     Typebox.value = docSnap.data().ItemType;
+    Contactbox.value =  docSnap.data().ContactInfo;
   }
 
   else{
@@ -115,6 +119,7 @@ async function updateFieldsInADocument() {
     LastSeenLocation: Lastseenbox.value,
     UniqueID: Uniquebox.value,
     ItemType: Typebox.value,
+    ContactInfo: Contactbox.value,
   })
     .then(() => {
       alert("Data updated successfully");
@@ -151,6 +156,9 @@ async function updateFieldsInADocument() {
  Readbtn.addEventListener("click", GetADocument);
  Updatebtn.addEventListener("click", updateFieldsInADocument);
  Deletebtn.addEventListener("click", deleteDocument);
+
+
+
 
 
  

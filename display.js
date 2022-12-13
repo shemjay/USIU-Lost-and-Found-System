@@ -53,11 +53,11 @@
         console.log(snap.val());
       
         if (snap.exists()) {
-          displayName.innerText = "Currently logged in as: " + user.email;
-        //   displayID.innerText = "School ID: " + user.schoolID;
-        //   displayEmail.innerText = "Email: " + user.email;
-        //   displayUsername.innerText = "User ID: " + user.uid;
-        //   displayLogin.innerText = "Account Last Login: " + undefined.last_login;
+          displayName.innerText = "Currently logged in as: "  + user.email;
+        displayID.innerText = "School ID: " + "660408"; //user.schoolID
+          displayEmail.innerText = "Email: " + user.email;
+          displayUsername.innerText = "User ID: " + user.uid;
+          displayLogin.innerText = "Account Last Login: " + "12/09/22";
         }
       }); 
 
@@ -74,7 +74,7 @@
 /////////////////////////////// Adding Data to the Table ////////////////////////////
 
 var tbody = document.getElementById('tbody1');
-function AddItemToTable(ItemName, IDnumber, ItemDescription, LastSeenLocation, UniqueID, ItemType) {
+function AddItemToTable(ItemName, IDnumber, ItemDescription, LastSeenLocation, UniqueID, ItemType, ContactInfo) {
   let tr = document.createElement("tr");
   let td1 = document.createElement("td");
   let td2 = document.createElement("td");
@@ -82,6 +82,7 @@ function AddItemToTable(ItemName, IDnumber, ItemDescription, LastSeenLocation, U
   let td4 = document.createElement("td");
   let td5 = document.createElement("td");
   let td6 = document.createElement("td");
+  let td7 = document.createElement("td");
 
   td1.classList += "ItemNameField";
   td2.classList += "IDnumberField";
@@ -89,6 +90,7 @@ function AddItemToTable(ItemName, IDnumber, ItemDescription, LastSeenLocation, U
   td4.classList += "LastSeenLocationField";
   td5.classList += "UniqueIDField";
   td6.classList += "ItemTypeField";
+//   td7.classList += "ContactInfoField";
 
   td1.innerHTML = ItemName;
   td2.innerHTML = IDnumber;
@@ -96,6 +98,7 @@ function AddItemToTable(ItemName, IDnumber, ItemDescription, LastSeenLocation, U
   td4.innerHTML = LastSeenLocation;
   td5.innerHTML = UniqueID;
   td6.innerHTML = ItemType;
+  td7.innerHTML = ContactInfo;
 
   
   tr.appendChild(td1);
@@ -104,11 +107,9 @@ function AddItemToTable(ItemName, IDnumber, ItemDescription, LastSeenLocation, U
   tr.appendChild(td4);
   tr.appendChild(td5);
   tr.appendChild(td6);
+  tr.appendChild(td7);
 
-  var ControlDiv = document.createElement("div");
-  ControlDiv.innerHTML = '<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter" onClick="fillTboxes(null)">Claim/Return</button>';
 
-  tr.appendChild(ControlDiv);
   tbody.appendChild(tr);
 
 }
@@ -117,7 +118,7 @@ function AddItemToTable(ItemName, IDnumber, ItemDescription, LastSeenLocation, U
   function AddAllItemsToTable(Items) {
     tbody.innerHTML = ""
     Items.forEach(element => {
-      AddItemToTable(element.ItemName, element.IDnumber, element.ItemDescription, element.LastSeenLocation, element.UniqueID, element.ItemType);
+      AddItemToTable(element.ItemName, element.IDnumber, element.ItemDescription, element.LastSeenLocation, element.UniqueID, element.ItemType, element.ContactInfo,);
     });
 }
 
@@ -185,33 +186,38 @@ function AddItemToTable(ItemName, IDnumber, ItemDescription, LastSeenLocation, U
         }
     }
 
-    // SearchBtn.onClick = function() {
-    //     console.log("button clicked!");
-    //     if(SearchBar.value=="") {
-    //         searchTable("ItemNameField");
-    //     }
 
-    //     else if(Category.value ==1)
-    //     searchTable("ItemNameField");
+    function searchTableByExactValues(Category) {
 
-    //     else if(Category.value ==2)
-    //     searchTable("IDnumberField");
+        var filter = SearchBar.value.toUpperCase();
+        var tr = tbody1.getElementsByTagName("tr");
+        var found;
 
-    //     else if(Category.value ==3)
-    //     searchTable("ItemDescriptionField");
+        for (let i = 0; i < tr.length; i++) {
 
-    //     else if(Category.value ==4)
-    //     searchTable("LastSeenLocationField");
+            var td = tr[i].getElementsByClassName(Category);
 
-    //     else if(Category.value ==5)
-    //     searchTable("UniqueIDField");
+        for (let j = 0; j < td.length; j++) {
+            if(td[j].innerHTML.toUpperCase() == filter) {
+                found=true;
+            }
+            
+        }
 
-    //     else if(Category.value ==6)
-    //     searchTable("ItemTypeField");
-    // }
+        if(found) {
+            tr[i].style.display = "";
+            found = "false";
+        }
+
+        else {
+            tr[i].style.display = "none";
+        }
+            
+        }
+    }
 
     SearchBtn.addEventListener("click", function() {
-        console.log("button clicked!");
+        // console.log("button clicked!");
         if(SearchBar.value=="") {
             searchTable("ItemNameField");
         }
@@ -220,7 +226,7 @@ function AddItemToTable(ItemName, IDnumber, ItemDescription, LastSeenLocation, U
         searchTable("ItemNameField");
 
         else if(Category.value ==2)
-        searchTable("IDnumberField");
+        searchTableByExactValues("IDnumberField");
 
         else if(Category.value ==3)
         searchTable("ItemDescriptionField");
@@ -232,7 +238,10 @@ function AddItemToTable(ItemName, IDnumber, ItemDescription, LastSeenLocation, U
         searchTable("UniqueIDField");
 
         else if(Category.value ==6)
-        searchTable("ItemTypeField");
+        searchTableByExactValues("ItemTypeField");
+
+        else if(Category.value ==7)
+        searchTable("ContactInfoField");
       });
 
 

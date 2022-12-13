@@ -23,7 +23,7 @@
             <a class="navbar-item" href="index.html">
               <img src="img/usiu.png" width = "80" height = "80">
             </a>
-            <p id = "displayName">Currently logged in as:</p>
+            
             <a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false">
               <span aria-hidden="true"></span>
               <span aria-hidden="true"></span>
@@ -31,22 +31,18 @@
             </a>
             
           </div>
-        
+          <p id = "displayName" class = "mt-3 ml-2">Currently logged in as:</p>
           <div class="navbar-menu" id="navMenu">
             <div class="navbar-end">
-              <a class="navbar-item" href = "main.html">
+              <a class="navbar-item nav-list" href = "main.html">
                 Lost and Found Items
               </a>
-
-              <a class="navbar-item" href = "returned.html">
-                Returned Items
-              </a>
         
-              <a class="navbar-item" href = "reportform.html">
+              <a class="navbar-item nav-list" href = "reportform.html">
                 Report an Item 
               </a>
 
-              <a class="navbar-item" href = "account.html">
+              <a class="navbar-item nav-list" href = "account.html">
                 My Account 
               </a>
             </div>
@@ -54,9 +50,6 @@
             <div class="navbar">
               <div class="navbar-item">
                 <div class="buttons">
-                  <a class="button is-primary" href = "index.html">
-                    <strong>Sign up</strong>
-                  </a>
                   <a id = "logout" class="button is-light">
                     Log Out
                   </a>
@@ -83,8 +76,8 @@
               <li class="list-group-item"  id = "displayLogin">Account Created: </li>
             </ul>
             <div class="card-footer">
-              <a href="#" class = "btn btn-primary">
-                Exit
+              <a href="main.html" class = "btn btn-primary">
+                Ok
               </a>
             </div>
           </div>

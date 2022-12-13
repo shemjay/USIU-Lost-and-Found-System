@@ -6,6 +6,8 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
   <link rel ="stylesheet" href = "style.css">
 	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
+  <!-- Bootstrap 4.4 CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta charset="UTF-8">
 </head>
@@ -24,22 +26,18 @@
         <span aria-hidden="true"></span>
       </a>
     </div>
-  
+    
     <div class="navbar-menu" id="navMenu">
       <div class="navbar-end">
-        <a class="navbar-item" href = "main.html">
+        <a class="navbar-item nav-list" href = "main.html">
           Lost and Found Items
         </a>
-
-        <a class="navbar-item" href = "returned.html">
-          Returned
-        </a>
   
-        <a class="navbar-item" href = "reportform.html">
-          Report an Item 
+        <a class="navbar-item nav-list" href = "reportform.html">
+          <strong></strong>Report an Item 
         </a>
 
-        <a class="navbar-item" href = "account.html">
+        <a class="navbar-item nav-list" href = "account.html">
           My Account 
         </a>
       </div>
@@ -47,11 +45,8 @@
       <div class="navbar">
         <div class="navbar-item">
           <div class="buttons">
-            <a class="button is-primary" href = "index.html">
-              <strong>Sign up</strong>
-            </a>
             <a class="button is-light" id = "logout">
-              Log Out
+              <strong>Log Out</strong>
             </a>
           </div>
         </div>
@@ -63,40 +58,55 @@
 
   <!--   CRUD Form -->
   <section id = "crud">
-    <h1 id = "itemTable">USIU Lost and Found Items</h1>
+    <div class = "crud-container">
+    <h1 id = "itemTable" class = "text-white">USIU Lost and Found Report Form</h1>
+    
+    <div class = "form-grp">
 
-    
-    <button id = "Createbtn">Add</button>
-    <button id = "Readbtn">Read</button>
-    <button id = "Updatebtn">Update</button>
-    <button id = "Deletebtn">Delete</button>
-    
-    
-
+    <div class = "topBox">
     <label>Item Name</label>
     <input id = "Itembox" type = "text">
-
+    
     <label>School ID</label>
     <input id = "IDbox" type = "number">
+    </div>
 
+    <div class == "middleBox">
     <label>Item Description</label>
     <textarea id = "Descbox"></textarea>
 
     <label>Last Seen Location</label>
     <textarea id = "Lastseenbox"></textarea>
+    </div>
 
+    <div class = "middleBox">
     <label>Unique Identifier</label>
     <textarea id = "Uniquebox"></textarea>
+
+    <label>Contact Info</label>
+    <textarea id = "Contactbox"></textarea> 
+    </div>
 
     <label>Item Type</label>
     <select id = "Typebox">
     <option value = "I lost it">I lost it</option>
     <option value = "I found it">I found it</option>
     </select>
+    </div>
+
+    <div class = "button-grp mt-3 mb-3">
+      <button id = "Createbtn" class = "btn btn-primary text-danger"><strong>Add</strong></button>
+      <button id = "Readbtn" class = "btn btn-warning text-white"><strong>Read</strong></button>
+      <button id = "Updatebtn" class = "btn btn-success text-white"><strong>Update</strong></button>
+      <button id = "Deletebtn" class = "btn btn-danger text-white"><strong>Delete</strong></button>
+      </div>
+    </div>
 
     
 
-  </section> 
+  </section>
+  
+  
 </body>
 
 <script type = "module" src = "crud.js"></script>

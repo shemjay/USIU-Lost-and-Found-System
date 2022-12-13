@@ -34,7 +34,7 @@
               .then((userCredential) => {
                   // Signed in 
                   const user = userCredential.user;
-
+                  
                   update(ref(database, "user/" +user.uid),{
                       username: username,
                       schoolID: schoolID,

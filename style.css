@@ -184,12 +184,6 @@ li span:nthchild {
 
 #crud label {
   display: inline-block;
-  width: 80px;
-}
-
-#crud button {
-  cursor: pointer;
-  border-radius: 5px;
 }
 
 th {
@@ -214,11 +208,22 @@ th {
 
 .navbar {
   background-color: rgb(254,213,0)!important;
-  text-decoration: none!important;
 }
 
 .navbar-menu {
   background-color: rgb(254,213,0)!important;
+}
+
+.nav-list {
+  text-decoration: none!important;
+  font-weight: bold!important;
+}
+
+.nav-list:hover {
+  color: rgb(40, 56, 144)!important;
+  border-radius: 5px !important;
+  transition: .5s !important;
+  background-color: rgba(255, 255, 255, 0.746) !important;
 }
 
 .mainBtn {
@@ -226,3 +231,66 @@ th {
   color: var(--white) !important;
 }
 
+#displayName {
+  font-size: 1rem;
+  background-color: rgba(255, 255, 255, 0.67);
+  padding: 1em;
+  display: inline-block;
+  border-radius: 5px;
+  font-weight: bolder;
+}
+
+table {
+  border-radius: 5px;
+}
+
+.crud-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.crud-container h1{
+  margin-top: 1em;
+}
+
+.button-grp strong {
+  color: white !important;
+}
+
+.form-grp {
+  border: 2px solid white;
+  border-radius: 5px;
+  background-color: rgb(255, 255, 255);
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.form-grp input {
+    display: block;
+    background: none;
+    border: 2px solid black;
+    color: black;
+    border-radius: 5px;
+}
+
+.form-grp textarea {
+  display: block;
+  background: none;
+  border: 1px solid black;
+  outline: none;
+  color: black;
+  border-radius: 5px;
+}
+
+.form-grp label {
+  color: black;
+  font-weight:bold;
+  font-size: 1rem;
+  width: 200px;
+}
